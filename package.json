@@ -3,13 +3,9 @@
   "version": "1.0.0",
   "description": "A toy API project demonstrating how to dockerized the API development.",
   "main": "index.js",
-   "type": "module",
+  "type": "module",
   "scripts": {
     "start": "nodemon ./index.js -exec babel-node"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/wdiazcarballo/wdc-containerized-crm.git"
   },
   "keywords": [],
   "author": "",
