@@ -12,7 +12,7 @@ services:
   mongo-student-33:
     image: mongo:latest
     ports:
-      - "27050:27017"
+      - "27038:27017"
     volumes:
       - db-data-student-21:/data/db
 volumes:
