@@ -9,7 +9,7 @@ services:
       PORT: 3000
     depends_on:
       - mongo-student-21
-  mongo-student-33:
+  mongo-student-21:
     image: mongo:latest
     ports:
       - "27038:27017"
