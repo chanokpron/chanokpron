@@ -1,19 +1,38 @@
 version: '3.8'
 services:
-  api-student-21:
+  app:
     build: .
     ports:
       - "3021:3000"
     environment:
-      DB_URL: mongodb://mongo-student-21:27017/CRMdb-student-21
-      PORT: 3000
+      - DB_URL=mongodb://mongo:27017/CRMdb
+      - JWT_SECRET=your_jwt_secret
     depends_on:
-      - mongo-student-21
-  mongo-student-21:
-    image: mongo:latest
+      - mongo
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:3000/health"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+    deploy:
+      resources:
+        limits:
+          cpus: '0.5'
+          memory: 256M
+
+  mongo:
+    image: mongo
     ports:
       - "27038:27017"
     volumes:
-      - db-data-student-21:/data/db
+      - mongo-data:/data/db
+
+  monitoring:
+    image: prom/prometheus
+    ports:
+      - "9090:9090"
+    volumes:
+      - ./prometheus.yml:/etc/prometheus/prometheus.yml
+
 volumes:
-  db-data-student-21:
+  mongo-data:
