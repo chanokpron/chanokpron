@@ -15,7 +15,9 @@
   },
   "homepage": "https://github.com/wdiazcarballo/wdc-containerized-crm#readme",
   "dependencies": {
+    "dotenv": "^16.4.5",
     "express": "^4.19.2",
+    "express-validator": "^7.0.1",
     "mongoose": "^8.3.1"
   }
 }
